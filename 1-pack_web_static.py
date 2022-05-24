@@ -8,10 +8,11 @@ from datetime import datetime
 
 
 def do_pack():
-    local('mkdir -p versions')
-    name = 'web_static_{}'.format(datetime.now().strftime('%Y%m%d%H%M%S'))
-    ruta = 'versions/{}'.format(name)
-    local('tar czfv versions/{}.tgz web_static'.format(name))
+    """Returns"""
+    local("mkdir -p versions")
+    name = "web_static_{}".format(datetime.now().strftime('%Y%m%d%H%M%S'))
+    ruta = "versions/{}".format(name)
+    local("tar czfv versions/{}.tgz web_static".format(name))
 
     if path.isfile(ruta):
         return ruta
