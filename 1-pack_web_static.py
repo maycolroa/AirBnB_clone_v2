@@ -3,13 +3,17 @@
 
 
 from fabric.api import local
-import datetime
+from os import path
+from datetime import datetime
+
+
 def do_pack():
-    local("mkdir -p versions")
-    k = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-    archive_1 = local("tar -czvf versions/web_static_{}\
-.tgz web_static".format(k))
-    if archive_1:
-        return ("versions/web_static_{}".format(k))
+    local('mkdir -p versions')
+    name = 'web_static_{}'.format(datetime.now().strftime('%Y%m%d%H%M%S'))
+    ruta = 'versions/{}'.format(name)
+    local('tar czfv versions/{}.tgz web_static'.format(name))
+
+    if path.isfile(ruta):
+        return ruta
     else:
         return None
