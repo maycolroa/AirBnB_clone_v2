@@ -1,19 +1,21 @@
 #!/usr/bin/python3
 """Write a script that starts a Flask web application:"""
+
+
 from flask import Flask
 
 app = Flask(__name__)
 
 
-@app.route("/", strict_slashes=False)
-def main():
-    """message"""
+@app.route('/', strict_slashes=False)
+def index():
+    """message Hello HBNB!"""
     return "Hello HBNB!"
 
 
-@app.route("/hbnb", strict_slashes=False)
-def hbnb():
-    """message"""
+@app.route('/hbnb', strict_slashes=False)
+def index2():
+    """message HBNB"""
     return "HBNB"
 
 
