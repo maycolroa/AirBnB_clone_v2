@@ -32,5 +32,12 @@ def python_display(text):
     return "".join(["Python ", text.replace("_", " ")])
 
 
+@app.route("/number/<int:n>", strict_slashes=False)
+def n_is_integer(n):
+    """text"""
+    if type(n) is int:
+        return "{} is a number".format(n)
+
+
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host="0.0.0.0", port=5000)
